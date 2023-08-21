@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name="ToolKit_NZ",
+    name="ToolKitNZ",
     version="0.1",
     author="Ning Zhang",
     author_email="ningzhang1024@gmail.com",
@@ -13,7 +13,7 @@ setup(
     ],
     # packages=setuptools.find_packages(),
     py_modules=[
-        "src.PySCF.MoleInts",
-        "src.Slurm.tool",
+        "ToolKitNZ.src.PySCF.MoleInts",
+        "ToolKitNZ.src.Slurm.tool",
     ]
 )
