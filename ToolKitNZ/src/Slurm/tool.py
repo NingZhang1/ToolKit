@@ -6,6 +6,7 @@ def generate_slurm_input(
         filename: str,
         job_name: str,
         outputname: str,
+        exclusive = True,
         time: str = "7-00:00:00",
         errorname: str = "error.log",
         nodes: int = 1,
@@ -24,8 +25,9 @@ def generate_slurm_input(
         f.write("#SBATCH --mail-type=all\n")
         f.write("#SBATCH --partition=%s\n" % (partition))
         f.write("#SBATCH --nodes=%d\n" % (nodes))
-        f.write("#SBATCH --exclusive\n")
-        f.write("#SBATCH -x pauling[001-049]\n")
+        if exclusive:
+            f.write("#SBATCH --exclusive\n")
+        f.write("#SBATCH -x pauling[001-040]\n")
         f.write("#SBATCH --mem=%dG\n" % (memory))
         f.write("export OMP_NUM_THREADS=$SLURM_CPUS_ON_NODE\n")
         f.write("%s\n" % (commond))
